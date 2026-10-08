@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .font-mono-code {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Screen Shake on Attack Injection */
+@keyframes screenTremor {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(-3px, 2px) rotate(-0.3deg); }
+  40% { transform: translate(3px, -2px) rotate(0.3deg); }
+  60% { transform: translate(-2px, -1px) rotate(-0.2deg); }
+  80% { transform: translate(2px, 1px) rotate(0.2deg); }
+}
+
+.animate-screen-tremor {
+  animation: screenTremor 0.4s ease-in-out;
+}
+
+/* Red Alert Screen Edge Pulsing Vignette (DEFCON 1) */
+@keyframes redAlertPulse {
+  0%, 100% {
+    box-shadow: inset 0 0 50px rgba(244, 63, 94, 0.4), inset 0 0 100px rgba(244, 63, 94, 0.2);
+  }
+  50% {
+    box-shadow: inset 0 0 90px rgba(244, 63, 94, 0.8), inset 0 0 160px rgba(244, 63, 94, 0.4);
+  }
+}
+
+.red-alert-active {
+  animation: redAlertPulse 1.2s infinite ease-in-out;
+}
+
+/* Radar 360 Degree Sweep */
+@keyframes radarSweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-radar-sweep {
+  transform-origin: 470px 230px;
+  animation: radarSweep 6s linear infinite;
+}
+
+/* Electric Laser Attack Flash */
+@keyframes laserFlash {
+  0%, 100% {
+    stroke-opacity: 0.9;
+    stroke-width: 3.5;
+  }
+  50% {
+    stroke-opacity: 0.4;
+    stroke-width: 1.5;
+  }
+}
+
+.animate-laser-flash {
+  animation: laserFlash 0.35s infinite ease-in-out;
+}
+
+/* Retro CRT Monitor Scanline Effect */
+.crt-overlay::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  z-index: 40;
+  background-size: 100% 3px, 4px 100%;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Corner HUD Brackets */
+.hud-card {
+  position: relative;
+}
+.hud-card::before, .hud-card::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+}
+.hud-card::before {
+  top: 0; left: 0;
+  border-top: 2px solid #06b6d4;
+  border-left: 2px solid #06b6d4;
+}
+.hud-card::after {
+  bottom: 0; right: 0;
+  border-bottom: 2px solid #06b6d4;
+  border-right: 2px solid #06b6d4;
+}
+
+/* Glitch Animation */
+@keyframes glitchText {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(-1px, -1px); }
+  60% { transform: translate(2px, 1px); }
+  80% { transform: translate(1px, -1px); }
+  100% { transform: translate(0); }
+}
+
+.animate-glitch {
+  animation: glitchText 0.3s infinite;
+}
+
+/* Cyber glow animations */
+@keyframes pulseGlowRed {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(244, 63, 94, 0.4), inset 0 0 15px rgba(244, 63, 94, 0.2);
+    border-color: #f43f5e;
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(244, 63, 94, 0.9), inset 0 0 30px rgba(244, 63, 94, 0.6);
+    border-color: #fda4af;
+  }
+}
+
+@keyframes pulseGlowCyan {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+  }
+}
+
+.animate-glow-red {
+  animation: pulseGlowRed 1.5s infinite ease-in-out;
+}
+
+.animate-glow-cyan {
+  animation: pulseGlowCyan 2.4s infinite ease-in-out;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090e1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}

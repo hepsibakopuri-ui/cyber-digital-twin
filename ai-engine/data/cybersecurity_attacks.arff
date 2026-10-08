@@ -1,0 +1,97 @@
+@relation cybersecurity_intrusion_telemetry
+
+@attribute duration numeric
+@attribute protocol_type {tcp, udp, icmp}
+@attribute service {http, https, ssh, rdp, dns, sql_oracle, smb, snmp, ftp, echo}
+@attribute flag {SF, S0, REJ, RSTR, SH, OTH}
+@attribute src_bytes numeric
+@attribute dst_bytes numeric
+@attribute failed_logins numeric
+@attribute logged_in {0, 1}
+@attribute num_compromised numeric
+@attribute count numeric
+@attribute serror_rate numeric
+@attribute rerror_rate numeric
+@attribute same_srv_rate numeric
+@attribute diff_srv_rate numeric
+@attribute dst_host_count numeric
+@attribute dst_host_srv_count numeric
+@attribute packet_entropy numeric
+@attribute attack_class {NORMAL, DOS_SYN_FLOOD, PORT_SCAN, BRUTE_FORCE, LATERAL_MOVEMENT, DATA_EXFILTRATION, RANSOMWARE_SPREAD}
+
+@data
+% --- NORMAL TRAFFIC SAMPLES ---
+0,tcp,https,SF,184,3214,0,1,0,3,0.0,0.0,1.0,0.0,12,12,3.4,NORMAL
+0,tcp,http,SF,232,1542,0,1,0,5,0.0,0.0,1.0,0.0,24,20,3.2,NORMAL
+1,tcp,sql_oracle,SF,540,8920,0,1,0,2,0.0,0.0,1.0,0.0,8,8,4.1,NORMAL
+0,udp,dns,SF,48,96,0,0,0,1,0.0,0.0,1.0,0.0,4,4,2.1,NORMAL
+2,tcp,ssh,SF,420,1200,0,1,0,1,0.0,0.0,1.0,0.0,2,2,3.8,NORMAL
+0,tcp,https,SF,312,4500,0,1,0,8,0.0,0.0,1.0,0.0,45,40,3.6,NORMAL
+0,tcp,http,SF,290,2100,0,1,0,6,0.0,0.0,1.0,0.0,30,28,3.3,NORMAL
+1,tcp,sql_oracle,SF,610,12400,0,1,0,3,0.0,0.0,1.0,0.0,10,10,4.2,NORMAL
+0,udp,dns,SF,52,108,0,0,0,2,0.0,0.0,1.0,0.0,6,6,2.3,NORMAL
+0,tcp,smb,SF,450,1800,0,1,0,2,0.0,0.0,1.0,0.0,15,14,3.5,NORMAL
+0,tcp,https,SF,210,3800,0,1,0,4,0.0,0.0,1.0,0.0,18,18,3.5,NORMAL
+0,tcp,http,SF,195,1420,0,1,0,7,0.0,0.0,1.0,0.0,22,22,3.1,NORMAL
+2,tcp,rdp,SF,1200,6400,0,1,0,1,0.0,0.0,1.0,0.0,3,3,4.0,NORMAL
+0,tcp,https,SF,350,5600,0,1,0,12,0.0,0.0,1.0,0.0,50,48,3.7,NORMAL
+0,udp,snmp,SF,120,240,0,0,0,1,0.0,0.0,1.0,0.0,5,5,2.8,NORMAL
+
+% --- DOS SYN FLOOD SAMPLES ---
+0,tcp,http,S0,0,0,0,0,0,450,1.0,0.0,1.0,0.0,255,10,1.2,DOS_SYN_FLOOD
+0,tcp,https,S0,0,0,0,0,0,512,0.98,0.0,1.0,0.0,255,8,1.1,DOS_SYN_FLOOD
+0,tcp,http,S0,0,0,0,0,0,380,1.0,0.0,1.0,0.0,250,5,1.3,DOS_SYN_FLOOD
+0,tcp,sql_oracle,S0,0,0,0,0,0,620,0.99,0.0,1.0,0.0,255,2,1.0,DOS_SYN_FLOOD
+0,tcp,http,S0,0,0,0,0,0,490,1.0,0.0,1.0,0.0,255,12,1.2,DOS_SYN_FLOOD
+0,tcp,https,S0,0,0,0,0,0,550,1.0,0.0,1.0,0.0,255,4,1.1,DOS_SYN_FLOOD
+0,tcp,http,S0,0,0,0,0,0,420,0.95,0.0,1.0,0.0,240,15,1.4,DOS_SYN_FLOOD
+0,tcp,sql_oracle,S0,0,0,0,0,0,700,1.0,0.0,1.0,0.0,255,1,0.9,DOS_SYN_FLOOD
+0,tcp,https,S0,0,0,0,0,0,480,0.97,0.0,1.0,0.0,255,6,1.2,DOS_SYN_FLOOD
+0,tcp,http,S0,0,0,0,0,0,600,1.0,0.0,1.0,0.0,255,3,1.0,DOS_SYN_FLOOD
+
+% --- PORT SCAN SAMPLES ---
+0,tcp,echo,REJ,0,0,0,0,0,180,0.0,0.95,0.05,0.95,255,1,1.5,PORT_SCAN
+0,tcp,http,REJ,0,0,0,0,0,140,0.0,0.90,0.08,0.92,250,2,1.6,PORT_SCAN
+0,tcp,ssh,REJ,0,0,0,0,0,210,0.0,0.98,0.04,0.96,255,1,1.4,PORT_SCAN
+0,tcp,rdp,REJ,0,0,0,0,0,165,0.0,0.92,0.06,0.94,248,3,1.7,PORT_SCAN
+0,tcp,ftp,REJ,0,0,0,0,0,190,0.0,0.96,0.03,0.97,255,1,1.3,PORT_SCAN
+0,udp,snmp,REJ,0,0,0,0,0,120,0.0,0.88,0.10,0.90,230,2,1.8,PORT_SCAN
+0,tcp,sql_oracle,REJ,0,0,0,0,0,175,0.0,0.94,0.05,0.95,255,2,1.5,PORT_SCAN
+0,tcp,echo,REJ,0,0,0,0,0,220,0.0,0.99,0.02,0.98,255,1,1.2,PORT_SCAN
+0,tcp,smb,REJ,0,0,0,0,0,150,0.0,0.91,0.07,0.93,240,2,1.6,PORT_SCAN
+
+% --- BRUTE FORCE SAMPLES ---
+1,tcp,ssh,RSTR,140,120,8,0,0,35,0.1,0.7,1.0,0.0,40,40,3.9,BRUTE_FORCE
+1,tcp,rdp,RSTR,280,180,12,0,0,42,0.0,0.8,1.0,0.0,50,50,4.1,BRUTE_FORCE
+2,tcp,ssh,RSTR,160,110,15,0,0,60,0.0,0.9,1.0,0.0,65,65,4.0,BRUTE_FORCE
+1,tcp,sql_oracle,RSTR,320,240,9,0,0,28,0.0,0.6,1.0,0.0,30,30,4.3,BRUTE_FORCE
+1,tcp,ssh,RSTR,150,115,11,0,0,48,0.0,0.75,1.0,0.0,55,55,3.8,BRUTE_FORCE
+2,tcp,rdp,RSTR,310,190,14,0,0,52,0.0,0.85,1.0,0.0,58,58,4.2,BRUTE_FORCE
+1,tcp,sql_oracle,RSTR,290,210,7,0,0,25,0.0,0.55,1.0,0.0,28,28,4.1,BRUTE_FORCE
+2,tcp,ssh,RSTR,170,125,18,0,0,70,0.0,0.92,1.0,0.0,75,75,3.9,BRUTE_FORCE
+1,tcp,ftp,RSTR,190,140,10,0,0,38,0.0,0.78,1.0,0.0,42,42,3.7,BRUTE_FORCE
+
+% --- LATERAL MOVEMENT SAMPLES ---
+3,tcp,smb,SF,2400,18500,0,1,3,15,0.0,0.0,0.8,0.2,25,20,5.6,LATERAL_MOVEMENT
+4,tcp,rdp,SF,3800,24000,0,1,4,18,0.0,0.0,0.7,0.3,30,22,5.8,LATERAL_MOVEMENT
+2,tcp,ssh,SF,1900,14200,0,1,2,12,0.0,0.0,0.85,0.15,20,18,5.4,LATERAL_MOVEMENT
+5,tcp,smb,SF,4100,32000,0,1,5,22,0.0,0.0,0.65,0.35,35,24,6.0,LATERAL_MOVEMENT
+3,tcp,sql_oracle,SF,2900,21000,0,1,3,16,0.0,0.0,0.75,0.25,28,21,5.7,LATERAL_MOVEMENT
+4,tcp,smb,SF,3500,27500,0,1,4,20,0.0,0.0,0.70,0.30,32,23,5.9,LATERAL_MOVEMENT
+2,tcp,ssh,SF,2200,16800,0,1,3,14,0.0,0.0,0.80,0.20,22,19,5.5,LATERAL_MOVEMENT
+
+% --- DATA EXFILTRATION SAMPLES ---
+120,tcp,https,SF,8500000,1200,0,1,1,2,0.0,0.0,1.0,0.0,5,5,7.8,DATA_EXFILTRATION
+95,tcp,dns,SF,4200000,800,0,0,1,3,0.0,0.0,1.0,0.0,8,8,7.9,DATA_EXFILTRATION
+140,tcp,https,SF,12500000,1500,0,1,1,1,0.0,0.0,1.0,0.0,4,4,8.1,DATA_EXFILTRATION
+80,tcp,ftp,SF,6400000,950,0,1,1,2,0.0,0.0,1.0,0.0,6,6,7.6,DATA_EXFILTRATION
+160,tcp,https,SF,15200000,2100,0,1,1,2,0.0,0.0,1.0,0.0,5,5,8.2,DATA_EXFILTRATION
+110,tcp,dns,SF,5100000,900,0,0,1,4,0.0,0.0,1.0,0.0,9,9,7.7,DATA_EXFILTRATION
+135,tcp,https,SF,9800000,1400,0,1,1,1,0.0,0.0,1.0,0.0,4,4,8.0,DATA_EXFILTRATION
+
+% --- RANSOMWARE SPREAD SAMPLES ---
+5,tcp,smb,SF,52000,180000,0,1,8,45,0.05,0.1,0.9,0.1,80,60,8.9,RANSOMWARE_SPREAD
+8,tcp,smb,SF,74000,240000,0,1,12,65,0.08,0.15,0.85,0.15,110,75,9.2,RANSOMWARE_SPREAD
+6,tcp,rdp,SF,48000,150000,0,1,7,40,0.04,0.08,0.92,0.08,70,55,8.8,RANSOMWARE_SPREAD
+10,tcp,smb,SF,95000,310000,0,1,15,85,0.10,0.20,0.80,0.20,130,80,9.4,RANSOMWARE_SPREAD
+7,tcp,smb,SF,62000,210000,0,1,9,52,0.06,0.12,0.88,0.12,90,65,9.0,RANSOMWARE_SPREAD

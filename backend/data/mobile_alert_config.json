@@ -1,0 +1,47 @@
+{
+  "enabled": true,
+  "channel": "telegram",
+  "telegramBotToken": "",
+  "telegramChatId": "",
+  "webhookUrl": "",
+  "minSeverity": "HIGH",
+  "cooldownSeconds": 5,
+  "alertHistory": [
+    {
+      "id": 1789136587278,
+      "attackType": "DOS_SYN_FLOOD",
+      "targetNode": "DMZ Public Web Server",
+      "severity": "CRITICAL",
+      "timestamp": "2026-09-11T14:23:07.278Z",
+      "dispatched": {
+        "sent": false,
+        "channel": "telegram",
+        "timestamp": "2026-09-11T14:23:07.278Z"
+      }
+    },
+    {
+      "id": 1789136581273,
+      "attackType": "DOS_SYN_FLOOD",
+      "targetNode": "DMZ Public Web Server",
+      "severity": "CRITICAL",
+      "timestamp": "2026-09-11T14:23:01.273Z",
+      "dispatched": {
+        "sent": false,
+        "channel": "telegram",
+        "timestamp": "2026-09-11T14:23:01.273Z"
+      }
+    },
+    {
+      "id": 1789136464917,
+      "attackType": "TEST_VERIFICATION_ALERT",
+      "targetNode": "Perimeter Firewall FW-01",
+      "severity": "HIGH",
+      "timestamp": "2026-09-11T14:21:04.917Z",
+      "dispatched": {
+        "sent": false,
+        "channel": "telegram",
+        "timestamp": "2026-09-11T14:21:04.917Z"
+      }
+    }
+  ]
+}

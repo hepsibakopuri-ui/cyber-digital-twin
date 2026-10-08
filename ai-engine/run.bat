@@ -1,0 +1,3 @@
+@echo off
+echo Starting Weka Cybersecurity AI Engine on port 5005...
+java -cp "bin;lib/*;." src.WekaServer
